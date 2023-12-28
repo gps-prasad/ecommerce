@@ -13,9 +13,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors({  origin: ['http://localhost:3000'],  // Allow requests only from this origin
-methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-credentials: true,}));
+app.use(cors());
 app.use(express.json());
 app.use("/api/v1/auth",authRoutes)
 app.use("/api/v1/category", categoryRoute);
