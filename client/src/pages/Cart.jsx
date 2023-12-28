@@ -3,17 +3,19 @@ import Footer from '../components/footer/Footer';
 import { cartDetails } from '../store/slices/cartSlice';
 import { useDispatch,useSelector } from 'react-redux';
 import CartItem from '../components/CartItem';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Cart() {
     const navigate = useNavigate();
     const [cart,setCart] = useState([]);
     const [total,setTotal] =useState(0);
     const [subTotal,setSubTotal] =useState(0);
+    const [user,setUser] = useState(JSON.parse(localStorage.getItem('auth'))?.user || '')
 
     useEffect(()=>{
         const existingItemsString = localStorage.getItem('items');
         const cart = existingItemsString ? JSON.parse(existingItemsString) : [];
+        // setUser(JSON.stringify(localStorage.getItem('auth')).user )
         setCart(cart)
     },[])
 
@@ -60,7 +62,7 @@ export default function Cart() {
         </thead>
         <tbody className="align-middle">
             {cart.map(({cartProduct,quantity},index)=>{
-                return( <CartItem product={cartProduct} quantity={quantity} removeCart={removeCart} setCart={setCart}/>)
+                return( <CartItem key={index} product={cartProduct} quantity={quantity} removeCart={removeCart} setCart={setCart}/>)
             })}
 
         </tbody>
@@ -98,7 +100,8 @@ export default function Cart() {
             <h5 className="font-weight-bold">Total</h5>
             <h5 className="font-weight-bold">${total}</h5>
           </div>
-          <button className="btn btn-block btn-primary my-3 py-3" disabled={total>0?false:true} onClick={()=>navigate('/checkout')}>
+          {!user && (<Link to={'/signin'} className='btn btn-block btn-primary rounded-3 my-3 py-3'>Login required</Link>)}
+          <button className="btn btn-block btn-primary my-3 py-3" disabled={total>0 && user?false:true} onClick={()=>navigate(`/dashboard/${user?.role===1?'admin':'user'}/checkout`)}>
             Proceed To Checkout
           </button>
         </div>

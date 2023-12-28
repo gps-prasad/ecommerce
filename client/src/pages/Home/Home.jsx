@@ -26,7 +26,9 @@ export default function Home() {
 
   const getAllCategory = async () => {
     try {
+      setLoading(true)
       const { data } = await axios.get(`${Base_URL}/api/v1/category/get-category`);
+      setLoading(false)
       if (data?.success) {
         setCategories(data?.category);
       }
@@ -103,9 +105,10 @@ export default function Home() {
   };
 
   const searchProduct = async(keyword) => {
-    try{
+    try{setLoading(true)
     const {data} = await axios.get(`${Base_URL}/api/v1/product/search/${keyword}`);
     setProducts(data)
+    setLoading(false)
     }
     catch(error){
       console.log(error)
@@ -129,7 +132,9 @@ export default function Home() {
           <button className='btn btn-primary rounded-2' onClick={()=>setPage(page-1)} disabled={page===1?true:false}><i class="fa-solid fa-arrow-left"></i> Prev</button>
           <button className='btn btn-primary rounded-2' onClick={()=>setPage(page+1)} disabled={page===3?true:false}> Next <i class="fa-solid fa-arrow-right"></i></button>
       </div>
-        {products.map((item,index)=>{
+        {loading===true && (<div class="spinner-border m-auto text-primary" role="status">
+  <span class="sr-only">Loading...</span></div>)}
+        {!loading && products.map((item,index)=>{
           return(<div className="col-lg-4 col-md-6 col-sm-12 pb-1">
           <div className="card product-item border-0 mb-4">
             <div className="card-header product-img position-relative overflow-hidden bg-transparent border p-0">

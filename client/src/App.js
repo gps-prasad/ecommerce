@@ -40,21 +40,21 @@ function App() {
       <BrowserRouter>
         <Navbar/>
         <Routes>
-          <Route path='/test/:id' element={<Invoice/>}/>
           <Route path='/forgot-password' element={<ForgotPassword/>}/>
           <Route path='/cart' element={<Cart/>}/>
-          <Route path='/checkout' element={<CheckOut/>}/>
           <Route path='/contact' element={<ContactDetails/>}/>
           <Route path='/product/:slug' element={<ProductDetails/>}/>
           <Route path="/" element={<Home/>} />
           <Route path="/signin" element={<Signin/>} />
           <Route path="/signup" element={<Signup/>} />
           <Route path="/dashboard" element={<Private/>} >
+            <Route path='user/checkout' element={<CheckOut/>}/>
             <Route path="user/profile" exact element={<Profile/>} />
             <Route path="user/orders" element={<Dashboard/>} />
             <Route path='user/invoice/:id' element={<Invoice/>}/>
           </Route>
           <Route path="/dashboard" element={<AdminRoute/>} >
+            <Route path='admin/checkout' element={<CheckOut/>}/>
             <Route path="admin/profile" exact element={<Profile/>} />
             <Route path="admin/orders" element={<Dashboard/>} />
             <Route path="admin/products" element={<Products/>} />
