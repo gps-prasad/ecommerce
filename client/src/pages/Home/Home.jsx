@@ -106,8 +106,14 @@ export default function Home() {
 
   const searchProduct = async(keyword) => {
     try{setLoading(true)
-    const {data} = await axios.get(`${Base_URL}/api/v1/product/search/${keyword}`);
-    setProducts(data)
+    if (keyword === ''){
+      const { data } = await axios.get(`${Base_URL}/api/v1/product/product-list/1`);
+      setProducts(data.products)
+    }
+    else{
+      const {data} = await axios.get(`${Base_URL}/api/v1/product/search/${keyword}`);
+      setProducts(data)
+    }
     setLoading(false)
     }
     catch(error){

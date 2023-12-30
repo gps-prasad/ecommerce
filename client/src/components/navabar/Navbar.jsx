@@ -14,7 +14,7 @@ import { setAuth } from '../../store/slices/authSlice';
 
 export default function Navbar() {
   const dispatch = useDispatch()
-  const auth = JSON.parse(localStorage.getItem('auth')) || {user:''};
+  const auth = useSelector(authDetails) || {user:''};
   const Base_URL = process.env.REACT_APP_URL || 'http://localhost:3001';
   const handleLogout = () => {
     dispatch(setAuth([null,'']))
