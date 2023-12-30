@@ -40,7 +40,7 @@ export default function Profile() {
       <Toaster />
       <div className="container-fluid mb-5">
       <div className="row border-top px-xl-5">
-      <div className="col-lg-3 d-none d-lg-block">
+      <div className="col-12 col-lg-3">
         {user.role===1?<AdminDashboardSideNav/>:<DashboardSideNav/>}
       </div>
       <div className="col-lg-7">

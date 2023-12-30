@@ -51,7 +51,7 @@ export default function AdminDashboard() {
           <div>
         <div className="container-fluid mb-5">
         <div className="row border-top px-xl-5">
-        <div className="col-lg-3 d-none d-lg-block">
+        <div className="col-sm-12 col-lg-3 d-lg-block">
           <DashboardSideNav/>
         </div>
         <div className="col-lg-7">

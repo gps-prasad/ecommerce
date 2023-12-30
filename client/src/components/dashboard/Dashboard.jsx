@@ -21,7 +21,7 @@ export default function Dashboard() {
     <div>
       <div className="container-fluid mb-5">
       <div className="row border-top px-xl-5">
-      <div className="col-lg-3 d-none d-lg-block">
+      <div className="col-12 col-lg-3 d-block">
       {user.role===1?<AdminDashboardSideNav/>:<DashboardSideNav/>}
         </div>
       <div className="col-lg-7">
@@ -31,7 +31,7 @@ export default function Dashboard() {
     <tr>
     <th scope="col">S No</th>
     <th scope="col">Order_id</th>
-    <th scope="col">Order_Date</th>
+    <th scope="col" className='d-none d-lg-block'>Order_Date</th>
     </tr>
     </thead>
     <tbody>
@@ -39,7 +39,7 @@ export default function Dashboard() {
     {return (<tr>
         <th scope="row">{index+1}</th>
         <th><Link to={`/dashboard/${user.role===1?'admin':'user'}/invoice/${item._id}`}>{item._id}</Link></th>
-        <td>{item.createdAt}</td>
+        <td className='d-none d-lg-block'>{item.createdAt}</td>
         </tr>)}
     )}
     </tbody>

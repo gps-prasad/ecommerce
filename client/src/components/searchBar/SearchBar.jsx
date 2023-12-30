@@ -26,7 +26,7 @@ export default function SearchBar({searchProduct,categories,filterProduct}) {
   return (
     <div className="container-fluid">
         <div className="row align-items-center py-3 px-xl-5">
-        <div className="col-lg-3 d-none d-lg-block">
+        <div className="col-lg-3 col-12 mb-2">
       <a
         className="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
         data-toggle="collapse"
@@ -39,7 +39,7 @@ export default function SearchBar({searchProduct,categories,filterProduct}) {
       <nav
         className="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light shadow-sm"
         id="navbar-vertical"
-        style={{ width: "calc(100% - 30px)", zIndex: 1 }}
+        style={{ width: "calc(100% - 30px)", zIndex: 2 }}
       >
         <div
           className="navbar-nav w-100 overflow-hidden"

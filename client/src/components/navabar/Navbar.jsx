@@ -77,7 +77,7 @@ export default function Navbar() {
         <span className="text-primary font-weight-bold border px-3 mr-1">
           E
         </span>
-        Shopper
+        Commerce
       </h1>
     </Link>
     <button

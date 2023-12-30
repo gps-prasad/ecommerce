@@ -4,7 +4,7 @@ import { Link,NavLink } from 'react-router-dom';
 export default function AdminDashboardSideNav() {
   return (
     <div>
-            <Link
+            <a
               className="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
               data-toggle="collapse"
               href="#navbar-vertical"
@@ -12,7 +12,7 @@ export default function AdminDashboardSideNav() {
             >
               <h6 className="m-0">Dashboard</h6>
               <i className="fa fa-angle-down text-dark" />
-            </Link>
+            </a>
             <nav
               className="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
               id="navbar-vertical"
