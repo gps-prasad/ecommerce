@@ -99,7 +99,7 @@ export default function Navbar() {
         <NavLink to="/cart" activeClassName='active' className="nav-item nav-link">
           Cart
         </NavLink>
-        <NavLink to={`/dashboard/${auth.user.role===0?"user":"admin"}/profile`} activeClassName='active' className="nav-item nav-link">
+        <NavLink to={`/dashboard/${auth.user?.role===0?"user":"admin"}/profile`} activeClassName='active' className="nav-item nav-link">
           Dashboard
         </NavLink>
         <NavLink to='/contact' className="nav-item nav-link">
